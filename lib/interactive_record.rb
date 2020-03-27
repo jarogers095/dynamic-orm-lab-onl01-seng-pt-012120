@@ -3,7 +3,9 @@ require 'active_support/inflector'
 
 class InteractiveRecord
   def initialize(options={})
-    
+    options.each do |k, v|
+      self.set_instance_variable("#{k}", v)
+    end
   end
   
   def self.table_name()
