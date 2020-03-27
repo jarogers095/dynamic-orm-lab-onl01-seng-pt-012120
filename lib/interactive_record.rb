@@ -33,8 +33,9 @@ class InteractiveRecord
   end
   
   def values_for_insert()
-    values = self.class.column_names.map do |col|
-      "'#{self.send(col)}'"
+    columns = self.class.column_names.delete_if{|col| col == "id"} 
+    values = columns.map do |cols|
+      "'#{self.send(cols)}'"
     end
     values.join(", ")
   end
