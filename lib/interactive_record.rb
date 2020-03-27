@@ -41,7 +41,7 @@ class InteractiveRecord
   end
   
   def save()
-    sql = "INSERT INTO students ( ? ) VALUES ( ? );"
+    sql = "INSERT INTO students ( name ) VALUES ( ? );"
     DB[:conn].execute(sql, "name", "Bob")
   end
 end
