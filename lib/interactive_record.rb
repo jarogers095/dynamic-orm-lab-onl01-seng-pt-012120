@@ -7,7 +7,7 @@ class InteractiveRecord
   end
   
   def self.column_names()
-    sql = "PRAGMA table_info( ? );"
+    sql = "SELECT * FROM pragma_table_info( ? );"
     table_info = DB[:conn].execute(sql, 1)
     column_names = []
     
