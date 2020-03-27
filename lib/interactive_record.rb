@@ -50,4 +50,10 @@ class InteractiveRecord
     sql = "SELECT * FROM #{self.table_name} WHERE name = ? LIMIT 1;"
     DB[:conn].execute(sql, name)
   end
+  
+  def self.find_by(attribute={})
+    attribute.map do |k, v|
+      sql = "SELECT * FROM #{self.table_name} WHERE #{k} = ? LIMIT 1;"
+      DB[:conn].execute(sql, v)[0]
+    end
 end
