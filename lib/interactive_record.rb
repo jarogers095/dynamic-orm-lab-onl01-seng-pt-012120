@@ -7,5 +7,5 @@ class InteractiveRecord
   end
   
   def self.column_names(db)
-    
+    DB
 end
