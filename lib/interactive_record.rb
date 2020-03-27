@@ -56,4 +56,5 @@ class InteractiveRecord
       sql = "SELECT * FROM #{self.table_name} WHERE #{k} = ? LIMIT 1;"
       DB[:conn].execute(sql, v)[0]
     end
+  end
 end
